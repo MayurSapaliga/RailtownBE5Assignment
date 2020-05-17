@@ -1,0 +1,64 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Farthest Users</h1>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th width="200px">
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DistanceFromOtherUser)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.Street),
+                    @Html.DisplayFor(modelItem => item.Address.Suite),
+                    @Html.DisplayFor(modelItem => item.Address.City),
+                    @Html.DisplayFor(modelItem => item.Address.ZipCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DistanceFromOtherUser)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
